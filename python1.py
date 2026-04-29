@@ -32,12 +32,12 @@ def first1():
 
         execute1.execute("SELECT password FROM users1 WHERE username1 = (%s)", (username1,))
         check1 = execute1.fetchone()
-        
-        if check1 and check_password_hash(check1[0], password1):
-            return redirect("/romi")
-        else: 
-            pass
-    return render_template("login.html")
+        if "name" in session and username1 == session["name"]:
+            if check1 and check_password_hash(check1[0], password1):
+                return redirect("/romi")
+            else: 
+                pass
+        return render_template("login.html")
 
 @start1.route("/singup", methods = ["GET", "POST"])
 def second2():
@@ -47,10 +47,15 @@ def second2():
         if len(username2.strip()) >= 4 and len(password2.strip()) >= 4:
             session["name"] = username2
             secure_pass = generate_password_hash(password2)
+            execute1.execute("SELECT 1 FROM users1 where username1 = %s", (username2,))
+            get_name = execute1.fetchone()
 
-            execute1.execute("INSERT INTO users1 (username1, password) VALUES (%s, %s)", (username2, secure_pass,))
-            connect1.commit()
-            return redirect("/")
+            if get_name:              
+                return render_template("singup.html", info1 = "this username already exists")
+            else:
+                execute1.execute("INSERT INTO users1 (username1, password) VALUES (%s, %s)", (username2, secure_pass,))
+                connect1.commit()
+                return redirect("/")
         else: 
             pass
     return render_template("singup.html")
@@ -59,10 +64,8 @@ def second2():
 def third3():
     return render_template("romi.html")
 
-
 start1.run(debug=True)
 connect1.close()
-
 
 
 
