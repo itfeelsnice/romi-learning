@@ -1,0 +1,113 @@
+
+body{
+    overflow: hidden;
+    margin: 0px;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, black, gray, white);
+}
+
+#bgcover{
+    position: absolute;
+    height: 100vh;
+    pointer-events: none;
+    inset: 0px;
+    background-image: 
+        radial-gradient(4px 4px at 40% 60%, white, transparent),
+        radial-gradient(4px 4px at 10% 80%, white, transparent),
+        radial-gradient(4px 4px at 70% 20%, white, transparent);
+    background-size: 200px 200px;
+    z-index: -10;
+    animation: come1 3s linear 1, move1 6s linear infinite forwards;
+}
+
+@keyframes come1 {
+    0%{transform: scale(0)}
+    50%{transform: scale(0.5)}
+    100%{transform: scale(1)}
+}
+
+@keyframes move1 {
+    0%{background-position: 0 0;}
+    100%{background-position: 0 100vh;}
+}
+
+#div1{
+    width: 22vmax;
+    height: 22vmax;
+    position: relative;
+    top: 12vmax;
+    left: 40%;
+    box-shadow: 5px 5px 30px gray, -5px -5px 30px;
+}
+
+#inp3{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    font-size: 1.1vmax;
+    background-color: white;
+    border-color: gray;
+    box-shadow: 5px 5px 30px gray, -5px -5px 30px;
+}
+
+#inp4{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    font-size: 1.1vmax;
+    background-color: white;
+    border-color: gray;
+    box-shadow: 5px 5px 30px gray, -5px -5px 30px;
+}
+
+#btn2{
+    position: absolute;
+    border-radius: 30px;
+    font-size: 1.5vmax;
+    top: 60%;
+    left: 36%;
+}
+
+#link2{
+    position: relative;
+    top: 23vmax;
+    left: 90%;
+    color: black;
+}
+
+#link2:focus{
+    color: gray;
+}
+
+#a1{
+    position: absolute;
+    font-size: 2.3vmax;
+    left: 16%;
+    background-image: linear-gradient(to left, black, gray, white);
+    background-size: 200px 400px;
+    background-clip: text;
+    color: transparent;
+    animation: text1 5s linear infinite;
+}
+
+@keyframes text1 {
+    0%{background-position: 0 0;} 
+    100%{background-position: 400px 0;}
+}
+
+#a2{
+    position: absolute;
+    color: red;
+    font-size: 15px;
+    top: 72%;
+    left: 28%;
+    animation: move2 1.5s linear infinite;
+}
+
+@keyframes move2 {
+    0%{transform: translateX(0px);}
+    25%{transform: translateX(10px);}
+    75%{transform: translateX(-10px);}
+    100%{transform: translateX(0px);}
+}
+

@@ -1,0 +1,42 @@
+
+body{
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+    background-image: linear-gradient(to bottom, black, gray, white);
+}
+
+#link1{
+    position: absolute;
+    top: 95%;
+    left: 90%;
+}
+
+#div1{
+    position: relative;
+    width: 21vmax;
+    height: 4vmax;
+    display: flex;
+    padding: 12px;
+    top: 30px;
+    padding-left: 50px;
+    left: 37%;
+    border-radius: 50px;
+    box-shadow: 5px 5px 30px black, -5px -5px 30px black;
+}
+
+#btn1{
+    position: absolute;
+    font-size: 1vmax;
+    top: 35%;
+    right: 60px;
+}
+
+#inp1{
+    position: absolute;
+    font-size: 1vmax;
+    top: 35%;
+    left: 50px;
+}
+
+

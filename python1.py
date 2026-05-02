@@ -37,7 +37,7 @@ def first1():
                 return redirect("/romi")
             else: 
                 pass
-        return render_template("login.html")
+    return render_template("login.html")
 
 @start1.route("/singup", methods = ["GET", "POST"])
 def second2():
